@@ -215,7 +215,7 @@ public class KeyHandlerMinibuffer extends ExecutingMinibuffer {
 	protected boolean checkKey(int state, int keyCode, int character) {
 		boolean result = true;
 		keys.add(getKey(state,keyCode,character));
-		trigger = KeySequence.getInstance(keys);
+		trigger = KeySequence.getInstance(keys.toArray(new KeyStroke [0]));
 		binding = bindingService.getPerfectMatch(trigger);
 		boolean partial = bindingService.isPartialMatch(trigger); 
 		if (binding == null) {
